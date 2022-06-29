@@ -20,7 +20,7 @@ router.get(
   controller.adminBoard
 );
 
-//update User
+//update UserAQA
 router.put("/api/users/:id", updateUser);
 
 //delete user
