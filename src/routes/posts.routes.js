@@ -34,6 +34,6 @@ router.get("/timeline/:userId", timelinePost); //done
 //get user's all posts
 router.get("/profile/:username", usersAllPosts);  //done
 
-router.get("/status", statusCode);
+router.get("/api/test/status", statusCode);
 
 module.exports = router;
