@@ -1,13 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require('dotenv');
-const authRoute = require("./src/routes/auth.routes");
-const userRoute = require("./src/routes/user.routes");
-const postRoute = require("./src/routes/posts.routes");
-const db = require("./src/models");
-const docs = require('./src/docs');
+const authRoute = require("./app/routes/auth.routes");
+const userRoute = require("./app/routes/user.routes");
+const postRoute = require("./app/routes/posts.routes");
+const db = require("./app/models");
+const docs = require('./app/docs');
 const swaggerUI = require("swagger-ui-express");
 const Role = db.role;
+const PORT = process.env.PORT || 8080;
 const mongoDb = process.env.MONGODB_URL || 'mongodb+srv://rootuser:rootpass@cluster0.boggx.mongodb.net/test';
 dotenv.config();
 
@@ -15,7 +16,7 @@ const app = express();
 app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(docs));
 
 var corsOptions = {
-  origin: "http://localhost:4200",
+  origin: "*",
 };
 
 app.use(cors(corsOptions));
@@ -78,9 +79,9 @@ function initial() {
   });
 }
 
-app.listen(process.env.PORT || 8080, () =>
-  console.log(`Server running on ${process.env.PORT || 8080}.`)
-);
+app.listen(PORT, function () {
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+});
 
 // simple route
 app.get("/", (_req, res) => {

@@ -2,9 +2,9 @@
   "name": "tweetapp",
   "version": "1.0.0",
   "description": "Node.js + MongoDB: JWT Authentication & Authorization",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "prod": "./node_modules/.bin/env-cmd -f ./.env.prod pm2 start -f app.js"
+    "prod": "./node_modules/.bin/env-cmd -f ./.env.prod pm2 start -f server.js"
   },
   "keywords": [
     "node.js",
