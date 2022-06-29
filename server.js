@@ -88,4 +88,3 @@ app.get("/", (_req, res) => {
   res.json({ message: "Welcome to Tweet application." });
 });
 
-module.exports = app;
