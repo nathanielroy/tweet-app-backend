@@ -1,11 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require('dotenv');
-const authRoute = require("./routes/auth.routes");
-const userRoute = require("./routes/user.routes");
-const postRoute = require("./routes/posts.routes");
-const db = require("./models");
-const docs = require('./docs');
+const authRoute = require("./src/routes/auth.routes");
+const userRoute = require("./src/routes/user.routes");
+const postRoute = require("./src/routes/posts.routes");
+const db = require("./src/models");
+const docs = require('./src/docs');
 const swaggerUI = require("swagger-ui-express");
 const Role = db.role;
 const mongoDb = process.env.MONGODB_URL || 'mongodb+srv://rootuser:rootpass@cluster0.boggx.mongodb.net/test';
@@ -77,6 +77,10 @@ function initial() {
     }
   });
 }
+
+app.listen(process.env.PORT || 8080, () =>
+  console.log(`Server running on ${process.env.PORT || 8080}.`)
+);
 
 // simple route
 app.get("/", (_req, res) => {
