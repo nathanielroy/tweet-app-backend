@@ -16,7 +16,7 @@ const app = express();
 app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(docs));
 
 var corsOptions = {
-  origin: "http://node-tweet-frontend.s3-website-us-east-1.amazonaws.com","http://localhost:4200"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));
