@@ -9,6 +9,7 @@ const {
   getPost,
   timelinePost,
   usersAllPosts,
+  statusCode
 } = require("../controllers/post");
 
 router.get("/api/test/user", [authJwt.verifyToken], controller.postBoard);
@@ -32,5 +33,7 @@ router.get("/timeline/:userId", timelinePost); //done
 
 //get user's all posts
 router.get("/profile/:username", usersAllPosts);  //done
+
+router.get("/status", statusCode);
 
 module.exports = router;

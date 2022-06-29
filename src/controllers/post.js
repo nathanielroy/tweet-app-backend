@@ -89,6 +89,14 @@ const getPost = async (req, res) => {
   }
 };
 
+const statusCode = async (req, res) => {
+  try {
+    res.status(200).json("working");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+};
+
 const timelinePost = async (req, res) => {
   try {
     const currentUser = await User.findById(req.params.userId);
@@ -122,4 +130,5 @@ module.exports = {
   getPost,
   timelinePost,
   usersAllPosts,
+  statusCode
 };
